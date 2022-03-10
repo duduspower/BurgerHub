@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>BURGER HUB HOME</title>
+    <img th:src="@{/images/logo.png}"/>
+    <style>
+body {
+  background-color: tomato;
+}
+
+h1 {
+  font-size: 70px;
+}
+
+h2 {
+  font-size: 80px;
+}
+
+a {
+  font-size: 80px;
+}
+</style>
+</head>
+
+<body>
+<h1 style="color:Green;">Welcome to BURGER HUB!</h1>
+<img th:src="@{/images/homeBurger.png}"/>
+<h2 style="color:White;">Try Out OUR New DOUBLE BURGER!!!</h2>
+<a style="color:Yellow;" th:href="@{/doubleBurger}" id="doubleBurger">Order Double Burger!</a><br/>
+<a style="color:Yellow;" th:href="@{/design}" id="design">Design a Burger!</a>
+</body>
+</html>

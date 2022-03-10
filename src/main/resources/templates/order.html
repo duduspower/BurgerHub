@@ -1,0 +1,121 @@
+<!-- tag::allButValidation[] -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title style="color:Green;">BURGER HUB ORDER</title>
+    <img th:src="@{/images/logo.png}" width="100"
+         height="50"/>
+    <style>
+    body {
+    background-image: url("/images/deliveryCat.png");
+    background-repeat: no-repeat;
+    background-color: tomato;
+    }
+
+    h1 {
+    font-size: 60px;
+    }
+
+    h2 {
+    font-size: 20px;
+    }
+
+    h3 {
+    font-size: 50px;
+    }
+
+    a {
+    font-size: 30px;
+    }
+    </style>
+
+</head>
+
+<body>
+
+<form method="POST" th:action="@{/order}" th:object="${order}">
+    <h1>Order Your Burger!</h1>
+    <a th:href="@{/design}" id="another" style="color:Yellow;">Design another BURGER!</a><br/>
+
+    <div th:if="${#fields.hasErrors()}">
+        <span class="validationError" style="color:White;">
+        Please correct the problems below and resubmit!
+        </span>
+    </div>
+
+    <h3 style="color:Yellow;">Deliver my order to... : </h3>
+
+    <h2 style="color:White;">Name : </h2>
+    <input type="text" th:field="*{name}"/>
+    <span class="validationError"
+          style="color:White;"
+          th:if="${#fields.hasErrors('name')}"
+          th:errors="*{name}">Name Error</span>
+    <br/>
+
+    <h2 style="color:White;">Street : </h2>
+    <input type="text" th:field="*{street}"/>
+    <span class="validationError"
+          style="color:White;"
+          th:if="${#fields.hasErrors('street')}"
+          th:errors="*{street}">Street Error</span>
+    <br/>
+
+    <h2 style="color:White;">City : </h2>
+    <input type="text" th:field="*{city}"/>
+    <span class="validationError"
+          style="color:White;"
+          th:if="${#fields.hasErrors('city')}"
+          th:errors="*{city}">City Error</span>
+    <br/>
+
+    <h2 style="color:White;">State : </h2>
+    <input type="text" th:field="*{state}"/>
+    <span class="validationError"
+          style="color:White;"
+          th:if="${#fields.hasErrors('state')}"
+          th:errors="*{state}">State Error</span>
+    <br/>
+
+    <h2 style="color:White;">Post Code : </h2>
+    <input type="text" th:field="*{postCode}"/>
+    <span class="validationError"
+          style="color:White;"
+          th:if="${#fields.hasErrors('postCode')}"
+          th:errors="*{postCode}">Post Code Error</span>
+    <br/>
+
+    <h3 style="color:Yellow;">I Can pay by... : </h3>
+    <h2 style="color:White;">Credit Card Number : </h2>
+    <input type="text" th:field="*{creditNumber}"/>
+    <span class="validationError"
+          style="color:White;"
+          th:if="${#fields.hasErrors('creditNumber')}"
+          th:errors="*{creditNumber}">CC Num Error</span>
+    <br/>
+
+    <h2 style="color:White;">Credit Card Expiration Date : </h2>
+    <input type="text" th:field="*{creditExDate}"/>
+    <span class="validationError"
+          style="color:White;"
+          th:if="${#fields.hasErrors('creditExDate')}"
+          th:errors="*{creditExDate}">CC Num Error</span>
+    <br/>
+
+    <h2 style="color:White;">Credit Card CVV : </h2>
+    <input type="text" th:field="*{creditCVV}"/>
+    <span class="validationError"
+          style="color:White;"
+          th:if="${#fields.hasErrors('creditCVV')}"
+          th:errors="*{creditCVV}">CC Num Error</span>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+    <input type="submit" value="Submit order"  style="height:100px; width:200px"/>
+</form>
+
+</body>
+</html>
