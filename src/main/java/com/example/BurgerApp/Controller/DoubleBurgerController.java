@@ -11,5 +11,4 @@ public class DoubleBurgerController {
     public String getDoubleBurger(){
         return "doubleBurger";
     }
-
 }
