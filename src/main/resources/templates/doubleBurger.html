@@ -2,33 +2,101 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>BURGER HUB DOUBLE BURGER</title>
     <img th:src="@{/images/logo.png}" width="100"
          height="50"/>
+    <title>BURGER HUB DESIGN</title>
     <style>
 body {
+  background-image: url("/images/burgerLayers.png");
+  background-repeat: no-repeat;
   background-color: tomato;
 }
 
 h1 {
   font-size: 50px;
 }
-
-h2 {
-  font-size: 80px;
-}
-
-a {
-  font-size: 80px;
-}
-
 </style>
 </head>
 
+
 <body>
-<h1 style="color:White;">ORDER DOUBLE BURGER!</h1>
-<img th:src="@{/images/homeBurger.png}"/>
-<h2 style="color:White;">Try Out OUR New DOUBLE BURGER!!!</h2>
-<a style="color:Yellow;" th:href="@{/order}" id="order">ORDER!</a>
+<h1 style="color:Green;" scale="200%">Design your Burger!</h1>
+
+<form method="POST" th:object="${design}">
+
+    <span class="validationError"
+          th:if="${#fields.hasErrors('ingredients')}"
+          th:errors="*{ingredients}">Ingredient Error</span>
+
+<!--    <div class="grid">-->
+<!--        <div class="ingredient-group" id="bums">-->
+<!--            <h3 style="color:Yellow;">Choose your BUM : </h3>-->
+<!--            <div style="color:White;" th:each="ingredient : ${bum}">-->
+<!--                <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />-->
+<!--                <span th:text="${ingredient.name}">INGREDIENT</span><br/>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="ingredient-group" id="meat">-->
+<!--            <h3 style="color:Yellow;">Pick your MEAT : </h3>-->
+<!--            <div style="color:White;" th:each="ingredient : ${meat}">-->
+<!--                <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />-->
+<!--                <span th:text="${ingredient.name}">INGREDIENT</span><br/>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="ingredient-group" id="cheeses">-->
+<!--            <h3 style="color:Yellow;">Select your CHEESE : </h3>-->
+<!--            <div style="color:White;" th:each="ingredient : ${cheese}">-->
+<!--                <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />-->
+<!--                <span th:text="${ingredient.name}">INGREDIENT</span><br/>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="ingredient-group" id="veggies">-->
+<!--            <h3 style="color:Yellow;">Select your VEGGIES : </h3>-->
+<!--            <div style="color:White;" th:each="ingredient : ${vegetables}">-->
+<!--                <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />-->
+<!--                <span th:text="${ingredient.name}">INGREDIENT</span><br/>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="ingredient-group" id="sauce">-->
+<!--            <h3 style="color:Yellow;">Select your SAUCE : </h3>-->
+<!--            <div style="color:White;" th:each="ingredient : ${sauce}">-->
+<!--                <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />-->
+<!--                <span th:text="${ingredient.name}">INGREDIENT</span><br/>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="ingredient-group" id="additives">-->
+<!--            <h3 style="color:Yellow;">Select your ADDITIVES : </h3>-->
+<!--            <div style="color:White;" th:each="ingredient : ${additive}">-->
+<!--                <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />-->
+<!--                <span th:text="${ingredient.name}">INGREDIENT</span><br/>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="ingredient-group" id="drinks">-->
+<!--            <h3 style="color:Yellow;">Grab your DRINK : </h3>-->
+<!--            <div style="color:White;" th:each="ingredient : ${drink}">-->
+<!--                <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />-->
+<!--                <span th:text="${ingredient.name}">INGREDIENT</span><br/>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div>-->
+
+<!--        <h3 style="color:Yellow;">Name your BURGER : </h3>-->
+<!--        <input type="text" th:field="*{name}"/>-->
+<!--        <span-->
+<!--                style="color:White;"-->
+<!--                class="validationError"-->
+<!--                th:if="${#fields.hasErrors('name')}"-->
+<!--                th:errors="*{name}">Name Error</span>-->
+<!--        <br/>-->
+<!--        <button style="color:Black;">Submit</button>-->
+<!--    </div>-->
+</form>
 </body>
 </html>

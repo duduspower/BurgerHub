@@ -34,4 +34,10 @@ public class Burger {
 
     public Burger() {
     }
+
+    public Burger(@NonNull String name, Date createdAt, List<Ingredient> ingredients) {
+        this.name = name;
+        this.createdAt = createdAt;
+        this.ingredients = ingredients;
+    }
 }

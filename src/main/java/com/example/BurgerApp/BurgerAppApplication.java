@@ -10,6 +10,8 @@ import org.springframework.context.annotation.Bean;
 import com.example.BurgerApp.Burger.Ingredient.Type;
 import com.example.BurgerApp.Burger.Ingredient;
 
+import java.util.ArrayList;
+
 @EnableAutoConfiguration(exclude = {ErrorMvcAutoConfiguration.class})
 @SpringBootApplication
 public class BurgerAppApplication {
