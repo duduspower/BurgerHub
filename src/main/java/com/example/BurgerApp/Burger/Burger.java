@@ -1,6 +1,7 @@
 package com.example.BurgerApp.Burger;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NonNull;
 
 import javax.persistence.*;
@@ -11,7 +12,7 @@ import java.util.List;
 
 @Data
 @Entity
-public class Burger {
+public class Burger{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,7 +28,7 @@ public class Burger {
     @Size(min = 1, message = "You must order at least 1 product")
     private List<Ingredient> ingredients = new ArrayList<>();
 
-    @PrePersist
+    @PrePersist //przed zapisem
     void createdAt(){
         this.createdAt = new Date();
     }

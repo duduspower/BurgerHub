@@ -35,7 +35,7 @@ public class DesignController {
 
     @Autowired
     public DesignController(IngredientRepo ingredientRepo, BurgerRepo burgerRepo){
-        this.ingredientRepo= ingredientRepo;
+        this.ingredientRepo = ingredientRepo;
         this.burgerRepo = burgerRepo;
     }
 

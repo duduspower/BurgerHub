@@ -28,7 +28,7 @@ public class DoubleBurgerController {
 
     @Autowired
     public DoubleBurgerController(IngredientRepo ingredientRepo, BurgerRepo burgerRepo){
-        this.ingredientRepo= ingredientRepo;
+        this.ingredientRepo = ingredientRepo;
         this.burgerRepo = burgerRepo;
     }
 
@@ -50,13 +50,13 @@ public class DoubleBurgerController {
         for(Ingredient.Type type : types){
             model.addAttribute(type.toString().toLowerCase(),filterByType(ingredients, type));
         }
-        return "design";
+        return "doubleBurger";
     }
 
     @PostMapping
     public String processDesign(@Valid Burger burger, Errors errors, @ModelAttribute Order order){
         if(errors.hasErrors()){
-            return "design";
+            return "doubleBurger";
         }
         Burger saved = burgerRepo.save(burger);
         order.addDesign(saved);
@@ -66,9 +66,11 @@ public class DoubleBurgerController {
 
     public List<Ingredient> doubleIngredient(){
         ArrayList<Ingredient> doubleIngredients = new ArrayList<Ingredient>();
-        doubleIngredients.add(new Ingredient("1", "Wheat Bun", Ingredient.Type.BUM));
+        doubleIngredients.add(new Ingredient("1",  "Wheat Bun", Ingredient.Type.BUM));
         doubleIngredients.add(new Ingredient("11", "100% Beef Patty", Ingredient.Type.MEAT));
         doubleIngredients.add(new Ingredient("11", "100% Beef Patty", Ingredient.Type.MEAT));
+        doubleIngredients.add(new Ingredient("14", "Canadian Bacon", Ingredient.Type.MEAT));
+        doubleIngredients.add(new Ingredient("14", "Canadian Bacon", Ingredient.Type.MEAT));
         doubleIngredients.add(new Ingredient("18", "Pasteurized Process American Cheese", Ingredient.Type.CHEESE));
         doubleIngredients.add(new Ingredient("18", "Pasteurized Process American Cheese", Ingredient.Type.CHEESE));
         doubleIngredients.add(new Ingredient("19", "Shredded Lettuce", Ingredient.Type.VEGETABLES));
@@ -77,6 +79,25 @@ public class DoubleBurgerController {
         doubleIngredients.add(new Ingredient("29", "Ketchup", Ingredient.Type.SAUCE));
         doubleIngredients.add(new Ingredient("30", "Mustard", Ingredient.Type.SAUCE));
         doubleIngredients.add(new Ingredient("31", "Mayonnaise", Ingredient.Type.SAUCE));
+        doubleIngredients.add(new Ingredient("32", "Chicken Nuggets", Ingredient.Type.ADDITIVE));
+        doubleIngredients.add(new Ingredient("33", "Fries", Ingredient.Type.ADDITIVE));
+        doubleIngredients.add(new Ingredient("34", "OnionRings", Ingredient.Type.ADDITIVE));
+        doubleIngredients.add(new Ingredient("35", "Apple Slices", Ingredient.Type.ADDITIVE));
+        doubleIngredients.add(new Ingredient("36", "Coca-Cola", Ingredient.Type.DRINK));
+        doubleIngredients.add(new Ingredient("37", "Sprite", Ingredient.Type.DRINK));
+        doubleIngredients.add(new Ingredient("38", "Dr Pepper", Ingredient.Type.DRINK));
+        doubleIngredients.add(new Ingredient("39", "Fanta", Ingredient.Type.DRINK));
+        doubleIngredients.add(new Ingredient("40", "Diet Coke", Ingredient.Type.DRINK));
+        doubleIngredients.add(new Ingredient("41", "Ice-Tea", Ingredient.Type.DRINK));
+        doubleIngredients.add(new Ingredient("42", "Fuze-Tea", Ingredient.Type.DRINK));
+        doubleIngredients.add(new Ingredient("43", "Water", Ingredient.Type.DRINK));
+        doubleIngredients.add(new Ingredient("44", "Tymbark Orange", Ingredient.Type.DRINK));
+        doubleIngredients.add(new Ingredient("45", "Tymbark Apple", Ingredient.Type.DRINK));
+        doubleIngredients.add(new Ingredient("46", "Banana Juice", Ingredient.Type.DRINK));
+        doubleIngredients.add(new Ingredient("47", "Tea", Ingredient.Type.DRINK));
+        doubleIngredients.add(new Ingredient("48", "Coffe", Ingredient.Type.DRINK));
+        doubleIngredients.add(new Ingredient("48", "Beer", Ingredient.Type.DRINK));
+
         return doubleIngredients;
     }
 
